@@ -1,0 +1,69 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Moss green + white, sober palette */
+  --moss-950: #0f1c0e;
+  --moss-900: #192e17;      /* text */
+  --moss-800: #192e17;      /* hero / footer bg */
+  --moss-700: #234020;
+  --moss: #2e5429;          /* primary */
+  --moss-light: #5a8454;
+  --moss-soft: #d3ded0;     /* light tint */
+  --cream: #dde5da;         /* page bg */
+  --white: #ffffff;
+  --border: #bccab8;
+  --muted: #55654f;
+  --radius: 14px;
+  --logo: url("../img/logo.png");
+  --shadow: 0 14px 40px rgba(25, 46, 23, 0.10);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: var(--cream);
+  color: var(--moss-900);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .brand-name, .hero-card h2, .tl-role {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+a { color: inherit; }
+.container { width: min(1120px, 92%); margin: 0 auto; }
+
+/* ===== Floating background scales ===== */
+.bg-shapes {
+  position: fixed; inset: 0; overflow: hidden; z-index: 0; pointer-events: none;
+}
+.scale {
+  position: absolute; display: flex; align-items: center; justify-content: center;
+  color: var(--moss-800); font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1; opacity: 0.09; will-change: transform; transform-origin: 50% 50%;
+}
+@keyframes float-a {
+  0%   { transform: translate(0,0) rotate(0deg); }
+  50%  { transform: translate(30px,-50px) rotate(14deg); }
+  100% { transform: translate(-15px,30px) rotate(-9deg); }
+}
+@keyframes float-b {
+  0%   { transform: translate(0,0) rotate(0deg); }
+  50%  { transform: translate(-40px,25px) rotate(-16deg); }
+  100% { transform: translate(25px,-40px) rotate(10deg); }
+}
+@keyframes float-c {
+  0%   { transform: translate(0,0) scale(1) rotate(0deg); }
+  50%  { transform: translate(25px,40px) scale(1.15) rotate(8deg); }
+  100% { transform: translate(-30px,-25px) scale(0.92) rotate(-6deg); }
+}
+@keyframes float-d {
+  0%   { transform: translate(0,0) rotate(0deg); }
+  50%  { transform: translate(-30px,-35px) rotate(-20deg); }
+  100% { transform: translate(30px,28px) rotate(12deg); }
+}
+.scale { animation-timing-function: ease-in-out; animation-iteration-count: infinite; }

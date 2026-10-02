@@ -1,0 +1,29 @@
+/* ===== Popup do vídeo (1:1) ===== */
+.video-modal {
+  position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, 0.72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  opacity: 0; transition: opacity 0.25s ease; padding: 20px;
+}
+.video-modal[hidden] { display: none; }
+.video-modal.show { opacity: 1; }
+.video-modal-box {
+  position: relative; aspect-ratio: 1 / 1; width: min(90vw, 80vh, 620px);
+  border-radius: 18px; overflow: hidden; background: #000;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  transform: scale(0.94); transition: transform 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+.video-modal.show .video-modal-box { transform: scale(1); }
+.video-modal-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+/* para vídeos verticais (Shorts): adicione a classe "crop" em .video-modal-box para preencher o quadrado */
+.video-modal-box.crop iframe { inset: auto; left: 0; top: 50%; height: 177.78%; transform: translateY(-50%); }
+.video-modal-close {
+  position: absolute; top: 10px; right: 10px; z-index: 2; width: 34px; height: 34px; border: none; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92); color: #111; font-size: 22px; line-height: 1; cursor: pointer;
+}
+.video-modal-close:hover { background: #fff; }
+.video-modal-yt { position: absolute; left: 0; right: 0; bottom: 18px; text-align: center; color: rgba(255,255,255,0.85); font-size: 14px; text-decoration: none; }
+.video-modal-yt:hover { color: #fff; text-decoration: underline; }
+
+.testi p strong { font-weight: 700; color: var(--moss-800); font-style: normal; }
+/* balança mais para cima dentro dos cards de áreas */
+.area-glyph { bottom: 36px; }

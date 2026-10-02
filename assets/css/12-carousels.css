@@ -1,0 +1,44 @@
+/* ===== Áreas: Penal com carrossel embutido; demais com popup verde ===== */
+.area-tile.t-dark { grid-column: 1 / -1; min-height: 0; padding-bottom: 40px; }
+.area-tile.t-dark .area-sub { min-height: 0; margin-bottom: 8px; }
+.area-tile.t-dark .area-glyph { display: none; }
+.area-tile.t-dark .flow-modal.inline { width: calc(100% + 56px); margin: 0 -28px 22px; }
+.flow-modal.inline { position: relative; inset: auto; display: flex; padding: 8px 0 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; overflow: visible; z-index: 1; animation: none; }
+.flow-modal.inline .flow-close, .flow-modal.inline .flow-top h3 { display: none; }
+.flow-modal.inline .flow-top { padding: 0 12px; }
+.flow-modal.inline .fcard { background: linear-gradient(165deg, #2e5429 0%, #143012 90%) !important; color: #f2f7f1 !important; box-shadow: 0 14px 34px rgba(0,0,0,.35); }
+.t-yellow { background: linear-gradient(180deg, #f5e6a3 0%, #fbf3cf 100%); color: #2b2208; }
+.t-gray   { background: linear-gradient(180deg, #eceeea 0%, #d8dcd5 100%); color: #192e17; }
+.t-purple { background: linear-gradient(180deg, #e6def1 0%, #d2c7e3 100%); color: #261a3a; }
+.t-yellow .area-sub, .t-gray .area-sub, .t-purple .area-sub { color: rgba(25,28,20,.72); }
+.t-yellow .pill-main, .t-gray .pill-main, .t-purple .pill-main { background: #2e5429; color: #fff; }
+.t-yellow .pill-main:hover, .t-gray .pill-main:hover, .t-purple .pill-main:hover { background: #192e17; }
+.t-yellow .pill-line, .t-gray .pill-line, .t-purple .pill-line { border-color: #2e5429; color: #2e5429; }
+.t-yellow .pill-line:hover, .t-gray .pill-line:hover, .t-purple .pill-line:hover { background: rgba(46,84,41,.1); }
+.t-yellow .area-glyph, .t-gray .area-glyph, .t-purple .area-glyph { color: #2e5429; opacity: .09; }
+.area-cats { background: none; gap: 14px; overflow: visible; }
+.area-cats .area-tile { border-radius: 26px; }
+.area-modal-card.tinted { background-image: linear-gradient(165deg, #1f3a1d 0%, #0f1c0e 70%) !important; background-color: #0f1c0e !important; color: #f2f7f1 !important; }
+  
+/* cards extras do carrossel */
+.flow-modal.inline .fcard.is-red { background: linear-gradient(165deg, #b32424 0%, #5c0d0d 92%) !important; border-color: rgba(255,190,190,.4); box-shadow: 0 14px 34px rgba(90,10,10,.5); }
+.fcard.is-red .fphase { background: #fff; color: #7a1515; }
+.fcard.is-red .fbar i { background: #ffd0d0; }
+@media (max-width: 720px) { .flow-steps .fs-dot { width: 22px; height: 22px; font-size: 11px; } .flow-steps .fs-line { width: 6px; } }
+  
+  
+  
+/* ===== Medidas Protetivas: popup em carrossel ===== */
+.flow-modal.pm .fcard { background: linear-gradient(165deg, #5b4687 0%, #2b1d4a 92%); color: #f6f2fc; }
+.flow-modal.pm .flow-top h3 { color: #f6f2fc; }
+.area-tile .area-actions .pm-open { min-width: 170px; }
+  
+.area-tile .pm-open.pm-req { background: #b9a3de; color: #2a1a4a; border: 1.5px solid #9f86cc; }
+.area-tile .pm-open.pm-req:hover { background: #a68ad3; color: #1f1238; }
+.area-tile .pm-open.pm-rev { background: #3a2760; color: #fff; border: 1.5px solid #3a2760; }
+.area-tile .pm-open.pm-rev:hover { background: #2a1a4a; color: #fff; }
+  
+/* Destaque: espaçamento equilibrado acima e abaixo da etiqueta */
+.area-cats .area-tile { padding-top: 84px; }
+.area-cats .area-tile .area-badge { top: 26px; }
+@media (max-width: 720px) { .area-cats .area-tile { padding-top: 84px; } }

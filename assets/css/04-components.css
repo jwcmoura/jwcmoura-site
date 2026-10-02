@@ -1,0 +1,105 @@
+/* ===== Conversion elements ===== */
+/* Announcement top bar */
+.announce {
+  background: var(--moss-800); color: #f2f7f1; text-align: center;
+  font-size: 13.5px; padding: 8px 16px; position: relative; z-index: 41;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+}
+.announce strong { color: #fff; }
+.announce a { color: #e4eec4; text-decoration: underline; font-weight: 600; }
+.announce .announce-text { flex: 1; text-align: center; }
+
+/* Social icons (top) */
+.social-top { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.social-top a {
+  display: flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  color: #ecf4ea; border: 1px solid rgba(255, 255, 255, 0.28);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.social-top a:hover { background: #f2f7f1; color: var(--moss-800); transform: translateY(-2px); }
+.social-top svg { width: 14px; height: 14px; fill: currentColor; display: block; }
+@media (max-width: 720px) { .announce .social-top { position: static; } }
+
+/* Trust badges in hero */
+.trust-strip {
+  display: flex; justify-content: flex-start; gap: 26px; flex-wrap: wrap; margin-top: 28px;
+}
+.trust-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(244,247,236,0.92); }
+.trust-mark {
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+  background: #6c8a3f; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;
+}
+
+/* Counters band */
+.band {
+  position: relative; z-index: 1; background: rgba(190,206,185,0.55); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 40px 0;
+}
+.counters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.counter { text-align: center; }
+.counter b { display: block; font-size: 34px; color: var(--moss-800); font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 600; line-height: 1.1; }
+.counter span { font-size: 13px; color: var(--muted); }
+@media (max-width: 720px) { .counters { grid-template-columns: repeat(2, 1fr); row-gap: 26px; } }
+
+
+
+/* Exit-intent / lead popup */
+.popup-overlay {
+  position: fixed; inset: 0; z-index: 80; background: rgba(10,20,10,0.7);
+  display: none; align-items: center; justify-content: center; padding: 20px;
+}
+.popup-overlay.show { display: flex; }
+.popup-card {
+  background: linear-gradient(160deg, var(--moss-800), var(--moss-950)); color: #f2f7f1; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; max-width: 420px; width: 100%; padding: 34px 30px;
+  text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,0.45); position: relative;
+  animation: pop .3s ease; overflow: hidden;
+}
+.popup-shapes { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.popup-shapes .scale { color: #ffffff; opacity: 0.14; }
+.popup-card > :not(.popup-shapes):not(.close) { position: relative; z-index: 1; }
+.popup-card .close { z-index: 2; }
+@keyframes pop { from { transform: scale(.94); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.popup-card .close { position: absolute; top: 10px; right: 14px; border: none; background: none; font-size: 26px; color: rgba(242,247,241,0.7); cursor: pointer; line-height: 1; }
+.popup-card .close:hover { color: #fff; }
+.popup-card .pop-ic { font-size: 44px; margin-bottom: 12px; }
+.popup-card h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 22px; color: #f2f7f1; margin-bottom: 10px; }
+.popup-card p { font-size: 14px; color: rgba(242,247,241,0.85); margin-bottom: 22px; }
+.popup-card .btn { width: 100%; justify-content: center; }
+.popup-card .popup-privacy { font-size: 11.5px; color: rgba(242,247,241,0.6); margin-top: 14px; line-height: 1.5; }
+
+/* ===== WillTag product section ===== */
+.willtag {
+  background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+  padding: 46px 30px; text-align: center; box-shadow: var(--shadow);
+  max-width: 840px; margin: 0 auto;
+}
+.willtag-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--moss-soft); border: 1px solid var(--border); color: var(--moss-800);
+  font-size: 12.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.4px;
+  padding: 7px 15px; border-radius: 999px; margin-bottom: 18px;
+}
+.willtag h2 { font-size: clamp(24px, 3vw, 32px); color: var(--moss-800); margin-bottom: 14px; }
+.willtag .willtag-desc { color: var(--muted); font-size: 15.5px; max-width: 650px; margin: 0 auto 22px; }
+.willtag-feats { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 28px; }
+.willtag-feats span {
+  font-size: 13px; color: var(--moss-900); background: var(--cream);
+  border: 1px solid var(--border); border-radius: 999px; padding: 7px 14px;
+}
+/* Collapsible tab */
+.willtag { padding: 26px 30px; }
+.willtag-head {
+  width: 100%; background: none; border: none; cursor: pointer; text-align: left;
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+}
+.willtag-head .willtag-title { flex: 1; }
+.willtag-head h2 { margin: 10px 0 0; text-align: left; }
+.willtag-chev {
+  color: var(--moss); font-size: 24px; line-height: 1; flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.willtag.open .willtag-chev { transform: rotate(45deg); }
+.willtag-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.willtag-body-inner { padding-top: 22px; border-top: 1px solid var(--border); }
+.willtag-body-inner .willtag-desc { margin: 0 auto 20px; }

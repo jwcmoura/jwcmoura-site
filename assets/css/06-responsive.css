@@ -1,0 +1,19 @@
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .hero .container { grid-template-columns: 1fr; }
+  .hero-card { max-width: 440px; margin: 0 auto; }
+  .about-grid { grid-template-columns: 1fr; }
+  .steps, .diff-grid, .testi-grid { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+  nav.topbar { backdrop-filter: none; -webkit-backdrop-filter: none; background: #ffffff; }
+  .nav-links {
+    position: fixed; inset: 0; top: 0; width: 100%; height: 100vh; height: 100dvh;
+    background: #ffffff; padding: 90px 24px 40px; overflow-y: auto;
+    flex-direction: column; justify-content: center; gap: 30px; z-index: 45;
+    transform: translateX(100%); transition: transform 0.3s ease;
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links a { font-size: 20px; }
+  .hamburger { display: block; position: relative; z-index: 50; }
+}
+  

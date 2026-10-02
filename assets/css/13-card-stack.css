@@ -1,0 +1,54 @@
+/* ===== Pilha de cards (Penal, Medidas Protetivas e demais áreas) =====
+   Todos os cards ocupam a mesma célula do grid: o primeiro fica por cima e os
+   seguintes aparecem escalonados atrás. O JS só troca --p (posição), --x e --r. */
+.card-stack {
+  display: grid; justify-items: stretch; align-items: stretch;
+  width: var(--cw, min(420px, 80vw)); margin: 0 auto; padding: 18px 0 52px;
+  position: relative; isolation: isolate; overflow: visible; gap: 0;
+  scroll-snap-type: none; touch-action: auto;
+  user-select: none; -webkit-user-select: none;
+}
+.card-stack .fcard {
+  grid-area: 1 / 1; width: 100%; min-width: 0; scroll-snap-align: none; scroll-snap-stop: normal;
+  --p: 0; --x: 0px; --r: 0deg;
+  transform-origin: 50% 50%;
+  transform: translate3d(var(--x), calc(var(--p) * 20px), 0) rotate(var(--r)) scale(calc(1 - var(--p) * .05));
+  z-index: calc(20 - var(--p));
+  opacity: var(--o, 1);
+  filter: brightness(calc(1 - var(--p) * .09));
+  transition: transform .4s cubic-bezier(.2, .8, .2, 1), opacity .3s ease, filter .3s ease;
+  touch-action: pan-y; cursor: grab; will-change: transform;
+  -webkit-user-drag: none;
+}
+.card-stack .fcard:not(.is-top) { pointer-events: none; cursor: default; }
+.card-stack .fcard.is-far { opacity: 0; }
+.card-stack .fcard.leaving { z-index: 40; transition: transform .26s ease-out, opacity .2s ease; }
+.card-stack .fcard.dragging, .card-stack .fcard.no-anim { transition: none; cursor: grabbing; }
+.card-stack.stack-dragging .fcard { transition: none; }
+.card-stack .fcard a, .card-stack .fcard button { -webkit-user-drag: none; }
+
+/* pilhas dentro de popups/áreas: o card que sai não gera barra de rolagem lateral */
+.flow-stage { overflow-x: clip; }
+.flow-modal { overflow-x: hidden; }
+.area-modal-card { overflow-x: hidden; }
+
+/* ---- popup das demais áreas (Família, Cível, Previdenciário) ---- */
+.am-deck { --cw: 100%; width: 100%; padding-bottom: 44px; }
+.am-deck .fcard {
+  min-height: 0; padding: 22px 22px 20px;
+  background: linear-gradient(165deg, #2e5429 0%, #143012 92%);
+  color: #f2f7f1; box-shadow: 0 14px 34px rgba(0,0,0,.35);
+}
+.am-deck .fcard h4 { font-size: 19px; margin-bottom: 10px; }
+.am-deck .fcard .am-obj { font-size: 14px; font-style: italic; opacity: .9; margin: 0 0 14px; color: inherit; }
+.am-deck .fcard ul { margin: 0; position: relative; }
+.am-deck .fcard li { color: inherit; }
+.am-steps { margin: 0 auto 6px; }
+.am-hint { text-align: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card-stack .fcard { transition: none; }
+}
+@media (max-width: 720px) {
+  .am-deck .fcard { padding: 20px 18px 18px; }
+}
